@@ -10,3 +10,26 @@ botoes.forEach((btn) => {
     document.getElementById(id).classList.add('ativo');
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const calendarEl = document.getElementById('calendar');
+  if (calendarEl) {
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      locale: 'pt-br',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,listWeek'
+      },
+      events: [
+        {
+          title: 'Exemplo de Evento',
+          start: new Date().toISOString().split('T')[0]
+        }
+      ]
+    });
+
+    calendar.render();
+  }
+});
